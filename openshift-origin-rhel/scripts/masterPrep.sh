@@ -15,6 +15,7 @@ yum -y clean all
 # Install the Ansible
 echo $(date) " - Installing Ansible"
 yum -y --enablerepo=epel install ansible 
+yum -y downgrade ansible
 
 # Disable EPEL to prevent unexpected packages from being pulled in during installation.
 yum-config-manager epel --disable
