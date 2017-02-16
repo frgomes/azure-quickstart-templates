@@ -19,12 +19,6 @@ yum -y --enablerepo=epel install ansible
 # Disable EPEL to prevent unexpected packages from being pulled in during installation.
 yum-config-manager epel --disable
 
-# Downgrade Ansible for workaround on 2.2.1.1
-echo $(date) " - Downgrading Ansible"
-yum -y clean all
-yum -y update --exclude=WALinuxAgent
-yum -y downgrade ansible
-
 # Install Docker 1.10.3
 echo $(date) " - Installing Docker 1.10.3"
 yum -y install docker-1.10.3
@@ -40,3 +34,8 @@ docker-storage-setup
 systemctl enable docker
 systemctl start docker
 
+# Downgrade Ansible for workaround on 2.2.1.1
+echo $(date) " - Downgrading Ansible"
+yum -y clean all
+yum -y update --exclude=WALinuxAgent
+yum -y downgrade ansible
