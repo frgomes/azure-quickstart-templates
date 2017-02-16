@@ -72,7 +72,7 @@ runuser -l $SUDOUSER -c "git clone https://github.com/openshift/openshift-ansibl
 cp /home/$SUDOUSER/openshift-ansible/roles/openshift_repos/files/origin/repos/openshift-ansible-centos-paas-sig.repo /etc/yum.repos.d/
 cp /home/$SUDOUSER/openshift-ansible/roles/openshift_repos/files/origin/gpg_keys/openshift-ansible-CentOS-SIG-PaaS /etc/pki/rpm-gpg/
 yum -y clean all
-yum -y update
+yum -y update --exclude=WALinuxAgent
 yum -y downgrade ansible
 
 echo "Executing Ansible playbook"
