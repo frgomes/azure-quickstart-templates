@@ -33,9 +33,3 @@ docker-storage-setup
 # Enable and start Docker services
 systemctl enable docker
 systemctl start docker
-
-# Downgrade Ansible for workaround on 2.2.1.1
-echo $(date) " - Downgrading Ansible"
-yum -y clean all
-yum -y update --exclude=WALinuxAgent
-yum -y downgrade ansible
