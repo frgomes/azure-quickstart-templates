@@ -21,6 +21,7 @@ yum-config-manager epel --disable
 
 # Downgrade Ansible for workaround on 2.2.1.1
 echo $(date) " - Downgrading Ansible"
+yum -y update --exclude=WALinuxAgent
 yum -y downgrade ansible
 
 # Install Docker 1.10.3
