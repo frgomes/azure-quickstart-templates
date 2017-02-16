@@ -69,8 +69,8 @@ $NODE-[0:${NODELOOP}].$DOMAIN openshift_node_labels="{'region': 'infra', 'zone':
 EOF
 
 runuser -l $SUDOUSER -c "git clone https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible"
-runuser -l $SUDOUSER -c "cp /home/$SUDOUSER/openshift-ansible/roles/openshift_repos/files/origin/repos/openshift-ansible-centos-paas-sig.repo /etc/yum.repos.d/"
-runuser -l $SUDOUSER -c "cp /home/$SUDOUSER/openshift-ansible/roles/openshift_repos/files/origin/gpg_keys/openshift-ansible-CentOS-SIG-PaaS /etc/pki/rpm-gpg/"
+cp /home/$SUDOUSER/openshift-ansible/roles/openshift_repos/files/origin/repos/openshift-ansible-centos-paas-sig.repo /etc/yum.repos.d/
+cp /home/$SUDOUSER/openshift-ansible/roles/openshift_repos/files/origin/gpg_keys/openshift-ansible-CentOS-SIG-PaaS /etc/pki/rpm-gpg/
 yum -y clean all
 yum update
 yum -y downgrade ansible
